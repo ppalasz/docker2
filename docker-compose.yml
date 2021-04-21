@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  players:
+    build: ./players
+    ports:
+      - 5002:80
+  node-php:
+    build: ./node-php
+    ports:
+      - 5003:80      
+    depends_on: 
+      - players
+    volumes:
+      - ./node-php/site:/site
+
+
+
